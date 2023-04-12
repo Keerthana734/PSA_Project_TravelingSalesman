@@ -55,5 +55,16 @@ public class Graph {
             System.out.println();
         }
     }
+    public double getWeight(String u, String v) {
+        List<Edge> edges = this.adjacencyList.get(u);
+        for (Edge edge : edges) {
+            if (edge.getDestination().equals(v)) {
+                return edge.getWeight();
+            }
+        }
+        // If no edge exists between u and v, return infinity
+        return Double.POSITIVE_INFINITY;
+    }
+
 }
 
