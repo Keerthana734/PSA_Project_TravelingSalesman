@@ -3,90 +3,39 @@ import java.util.*;
 
 
 public class MinimumWeightPerfectMatching {
-    public static List<Edge> computeMinimumWeightPerfectMatching(Graph graph, Set<String> oddDegreeVertices) {
-        int n = oddDegreeVertices.size();
-        double[][] costMatrix = new double[n][n];
-        Map<String, Integer> indexMap = new HashMap<>();
-        int i = 0;
-
-        // Create cost matrix and index map for vertices in O
-        for (String vertex : oddDegreeVertices) {
-            indexMap.put(vertex, i);
-            int j = 0;
-            for (Edge e : graph.getEdges(vertex)) {
-                if (oddDegreeVertices.contains(e.getDestination())) {
-                    int k = indexMap.get(e.getDestination()); // add null check here
-                    costMatrix[i][k] = e.getWeight() ; // update to handle fractional weights
-                }
-                j++;
-            }
-            i++;
-        }
-
-
-        int[] matching = new int[n];
-        Arrays.fill(matching, -1);
-
-        // Run Hungarian algorithm
-        for (int k = 0; k < n; k++) {
-            boolean[] rowVisited = new boolean[n];
-            boolean[] colVisited = new boolean[n];
-            int u = k;
-            while (true) {
-                double min = Double.MAX_VALUE;
-                int v = -1;
-                for (int j = 0; j < n; j++) {
-                    if (!rowVisited[u] && !colVisited[j] && costMatrix[u][j] < min) {
-                        min = costMatrix[u][j];
-                        v = j;
-                    }
-                }
-                if (v == -1) {
-                    break;
-                }
-                colVisited[v] = true;
-                rowVisited[u] = true;
-                if (matching[v] == -1) {
-                    while (true) {
-                        int prev_u = u;
-                        u = matching[prev_u];
-                        matching[prev_u] = v;
-                        v = prev_u;
-                        if (v == k) {
-                            break;
-                        }
-                    }
-                    matching[u] = v;
-                    break;
-                } else {
-                    u = matching[v];
-                }
+    public static Graph PerfectMatching(Graph graph) {
+        // Create a list of all the odd vertices
+        List<String> odds = new ArrayList<>();
+        for (String vertex : graph.getVertices()) {
+            int degree = graph.getDegree(vertex);
+            if (degree % 2 == 1) {
+                odds.add(vertex);
             }
         }
 
-        // Construct minimum weight perfect matching edges
-        List<Edge> matchingEdges = new ArrayList<>();
-        for (int j = 0; j < n; j++) {
-            if (matching[j] != -1) {
-                String u = getVertexFromIndex(oddDegreeVertices, j);
-                String v = getVertexFromIndex(oddDegreeVertices, matching[j]);
-                Edge e = new Edge(u, v, costMatrix[j][matching[j]]);
-                matchingEdges.add(e);
-            }
-        }
+        // While there are still odd vertices
+        while (!odds.isEmpty()) {
+            // Pop the first odd vertex from the list
+            String v = odds.remove(0);
 
-        return matchingEdges;
-    }
+            // Initialize the length of the shortest edge to infinity
+            double length = Double.MAX_VALUE;
+            String closest = null;
 
-    private static String getVertexFromIndex(Set<String> oddDegreeVertices, int index) {
-        int i = 0;
-        for (String vertex : oddDegreeVertices) {
-            if (i == index) {
-                return vertex;
+            // Iterate over all the odd vertices
+            for (String u : odds) {
+                // If the weight of the edge between v and u is less than the current length
+                if (graph.getWeight(v, u) < length) {
+                    // Update the length and the closest vertex
+                    length = graph.getWeight(v, u);
+                    closest = u;
+                }
             }
-            i++;
+
+            // Add an edge between the closest vertex and v
+            graph.addEdge(v, closest);
         }
-        return null;
+        return graph;
     }
 
 }
