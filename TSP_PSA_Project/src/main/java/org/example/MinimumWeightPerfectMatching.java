@@ -1,41 +1,38 @@
 package org.example;
 import java.util.*;
-
-
+import org.example.*;
 public class MinimumWeightPerfectMatching {
-    public static Graph PerfectMatching(Graph graph) {
-        // Create a list of all the odd vertices
-        List<String> odds = new ArrayList<>();
-        for (String vertex : graph.getVertices()) {
-            int degree = graph.getDegree(vertex);
-            if (degree % 2 == 1) {
-                odds.add(vertex);
-            }
-        }
 
-        // While there are still odd vertices
-        while (!odds.isEmpty()) {
-            // Pop the first odd vertex from the list
-            String v = odds.remove(0);
-
-            // Initialize the length of the shortest edge to infinity
-            double length = Double.MAX_VALUE;
-            String closest = null;
-
-            // Iterate over all the odd vertices
-            for (String u : odds) {
-                // If the weight of the edge between v and u is less than the current length
-                if (graph.getWeight(v, u) < length) {
-                    // Update the length and the closest vertex
-                    length = graph.getWeight(v, u);
+    public static Graph minimumWeightMatching(List<Edge> MST, Graph G, Set<String> oddVert) {
+        List<String> oddVertices = new ArrayList<>(oddVert);
+        // Collections.shuffle(oddVertices);
+        System.out.println(MST);
+        while (!oddVertices.isEmpty()) {
+            String v = oddVertices.remove(0);
+            double length = Double.POSITIVE_INFINITY;
+            String closest = "";
+            for (String u : oddVertices) {
+                if (!v.equals(u) && G.getWeight(v, u) < length) {
+                    length = G.getWeight(v, u);
                     closest = u;
                 }
             }
-
-            // Add an edge between the closest vertex and v
-            graph.addEdge(v, closest);
+            MST.add(new Edge(v, closest, length));
+            oddVertices.remove(closest);
         }
-        return graph;
+        System.out.println(MST);
+        Graph H = new Graph();
+        for (Edge edge : MST) {
+            H.addVertex(edge.getSource());
+            H.addVertex(edge.getDestination());
+            H.addEdge(edge.getSource(), edge.getDestination(), edge.getWeight());
+        }
+        H.printAdjacencyList();
+        H.isEulerian();
+        return H;
+
+
     }
+
 
 }
