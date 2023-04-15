@@ -20,7 +20,7 @@ public class Hamiltonian {
         }
         hamiltonianCycle.add(eulerianCycle.get(0));
         //Compute the total distance covered in the cycle
-//
+
         double totalDistance = 0;
         for (int i = 0; i < hamiltonianCycle.size() - 1; i++) {
             String currVertex = hamiltonianCycle.get(i);
@@ -36,7 +36,7 @@ public class Hamiltonian {
 
 
         // Print the Hamiltonian cycle and the total distance covered in the cycle
-        System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
+       // System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
         System.out.println("Total distance covered: " + totalDistance);
 
         // Return the Hamiltonian cycle
