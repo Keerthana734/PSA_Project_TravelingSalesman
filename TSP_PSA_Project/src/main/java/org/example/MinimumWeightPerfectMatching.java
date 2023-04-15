@@ -34,7 +34,7 @@ public class MinimumWeightPerfectMatching {
         }
         H.printAdjacencyList();
 //        A.printAdjacencyList();
-        Map<String, Map<String, Double>> edgeWeight = H.getEdgeWeight();
+        Map<String, Map<String, Double>> edgeWeight = G.getEdgeWeight();
 
 //        for (Edge edge : MST) {
 //            edgeWeight.putIfAbsent(edge.getSource(), new HashMap<>());

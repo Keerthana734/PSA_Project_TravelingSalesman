@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ChristofidesAlgorithm {
 public static void main(String[] args){
-    Graph graph = GraphFromCSV.constructGraphFromCSV("Book2.csv");
+    Graph graph = GraphFromCSV.constructGraphFromCSV("crimeSample.csv");
     PrimsMST mst=new PrimsMST();
   // System.out.println(mst.primMST(graph));
     //System.out.println(GraphFromCSV.haversine(51.465752,-0.173787,51.465515,-0.192743));
