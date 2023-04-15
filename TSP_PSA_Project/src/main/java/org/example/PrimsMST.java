@@ -36,5 +36,13 @@ public class PrimsMST {
         return mst;
     }
 
+    public static boolean contains(List<Edge> mst, Edge edge) {
+        for (Edge e : mst) {
+            if (e.equals(edge)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
