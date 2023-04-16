@@ -15,24 +15,24 @@ public class GraphFromCSV {
             Map<String, Double> latitudes = new HashMap<>();
             Map<String, Double> longitudes = new HashMap<>();
 
-            // Read each line of the CSV file
+
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
 
-                // Parse the crime ID, longitude, and latitude from the line
+
                 String crimeID = values[0];
                 double longitude = Double.parseDouble(values[1]);
                 double latitude = Double.parseDouble(values[2]);
 
-                // Add the crime ID as a vertex in the graph
+
                 graph.addVertex(crimeID);
 
-                // Store the longitude and latitude for later use
+
                 latitudes.put(crimeID, latitude);
                 longitudes.put(crimeID, longitude);
             }
 
-            // Compute the edge weights based on the distances between the latitude and longitude points
+
             for (int i = 0; i < graph.getNumVertices(); i++) {
                 String u = graph.getVertex(i);
                 double latitude1 = latitudes.get(u);
@@ -42,7 +42,6 @@ public class GraphFromCSV {
                     double latitude2 = latitudes.get(v);
                     double longitude2 = longitudes.get(v);
                     double distance = haversine(latitude1, longitude1, latitude2, longitude2);
-                    //System.out.println(distance);
                     graph.addEdge(u, v, distance);
                 }
             }
@@ -53,10 +52,9 @@ public class GraphFromCSV {
         return graph;
     }
 
-    // Compute the distance between two latitude and longitude points using the Haversine formula
+
     public static double haversine(double lat1, double lon1, double lat2, double lon2) {
         double R = 6371; // Radius of the earth in km
-        //System.out.println(lat1+" "+lon1+" "+lat2+" "+lon2);
         double dLat = Math.toRadians(lat2 - lat1);
         double dLon = Math.toRadians(lon2 - lon1);
         double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +

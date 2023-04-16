@@ -11,6 +11,11 @@ public class Edge {
         this.weight = weight;
     }
 
+    public Edge getReverseEdge() {
+        return new Edge(this.destination, this.source, this.weight);
+    }
+
+
     public String getSource() {
         return this.source;
     }
