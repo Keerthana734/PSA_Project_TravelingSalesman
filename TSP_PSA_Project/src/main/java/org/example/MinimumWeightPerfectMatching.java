@@ -28,11 +28,21 @@ public class MinimumWeightPerfectMatching {
             H.addEdge(edge.getSource(), edge.getDestination(), edge.getWeight());
         }
         H.printAdjacencyList();
+        Map<String, Map<String, Double>> edgeWeight = G.getEdgeWeight();
+        System.out.println(edgeWeight);
         H.isEulerian();
+        List<String> tour = HierholzerAlgorithm.findEulerTour(H);
+        System.out.println(tour);
+        Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+
+
         return H;
 
 
     }
+
+
+
 
 
 }

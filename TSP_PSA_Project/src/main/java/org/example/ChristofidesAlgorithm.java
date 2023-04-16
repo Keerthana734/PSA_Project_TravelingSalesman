@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ChristofidesAlgorithm {
 public static void main(String[] args){
-    Graph graph = GraphFromCSV.constructGraphFromCSV("Book2.csv");
+    Graph graph = GraphFromCSV.constructGraphFromCSV("crimeSample.csv");
     PrimsMST mst=new PrimsMST();
 
     //System.out.println(mst.primMST(graph));
@@ -24,8 +24,8 @@ public static void main(String[] args){
     g =  MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)), graph, OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
     HierholzerAlgorithm e = new HierholzerAlgorithm();
     System.out.println(e.findEulerTour(g));
+//    e.findHamiltonCycle(g);
 
 
 }
-
 }
