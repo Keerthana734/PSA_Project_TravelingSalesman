@@ -1,6 +1,8 @@
 package org.example;
 import java.util.*;
 
+import static org.example.SimulatedAnnealing.simulatedAnnealing;
+
 public class Hamiltonian {
     public static List<String> shortcutEulerianCycle(List<String> eulerianCycle, Map<String, Map<String, Double>> edgeWeight) {
 
@@ -39,7 +41,8 @@ public class Hamiltonian {
         System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
         System.out.println("Total distance covered: " + totalDistance);
         twoOpt(hamiltonianCycle, edgeWeight);
-        threeOpt(hamiltonianCycle,edgeWeight );
+        List<String> p = threeOpt(hamiltonianCycle,edgeWeight );
+        simulatedAnnealing(hamiltonianCycle,edgeWeight);
         // Return the Hamiltonian cycle
         return hamiltonianCycle;
     }
