@@ -32,5 +32,9 @@ public class Edge {
     public String toString() {
         return String.format("(%s, %s, %f)", this.source, this.destination, this.weight);
     }
+
+    public Edge getReverseEdge() {
+        return new Edge(this.destination, this.source, this.weight);
+    }
 }
 
