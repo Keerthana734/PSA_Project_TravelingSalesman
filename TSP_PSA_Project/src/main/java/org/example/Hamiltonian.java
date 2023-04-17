@@ -1,6 +1,8 @@
 package org.example;
 import java.util.*;
 
+import static org.example.SimulatedAnnealing.simulatedAnnealing;
+
 public class Hamiltonian {
     public static List<String> shortcutEulerianCycle(List<String> eulerianCycle, Map<String, Map<String, Double>> edgeWeight) {
 
@@ -39,13 +41,16 @@ public class Hamiltonian {
         System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
         System.out.println("Total distance covered: " + totalDistance);
         twoOpt(hamiltonianCycle, edgeWeight);
+        simulatedAnnealing(hamiltonianCycle,edgeWeight);
         threeOpt(hamiltonianCycle,edgeWeight );
+
         // Return the Hamiltonian cycle
         return hamiltonianCycle;
     }
 
     public static List<String> twoOpt(List<String> cycle, Map<String, Map<String, Double>> edgeWeight) {
         boolean improved = true;
+        double totalDistance = 0;
         while (improved) {
             improved = false;
             for (int i = 1; i < cycle.size() - 2; i++) {
@@ -53,26 +58,16 @@ public class Hamiltonian {
                     List<String> newCycle = twoOptSwap(cycle, i, j);
                     double newDistance = computeDistance(newCycle, edgeWeight);
                     double oldDistance = computeDistance(cycle, edgeWeight);
+                    totalDistance = oldDistance;
                     if (newDistance < oldDistance) {
                         cycle = newCycle;
                         improved = true;
+                        totalDistance = newDistance;
                     }
                 }
             }
         }
 
-        double totalDistance = 0;
-        for (int i = 0; i < cycle.size() - 1; i++) {
-            String currVertex = cycle.get(i);
-            String nextVertex = cycle.get(i + 1);
-            Map<String, Double> vertexWeights = edgeWeight.get(currVertex);
-            Double edgedistance = vertexWeights.get(nextVertex);
-            if (edgedistance == null) {
-                // Handle the case where there is no edge between the current and next vertices
-                throw new IllegalArgumentException("No edge between " + currVertex + " and " + nextVertex);
-            }
-            totalDistance += edgedistance;
-        }
 
         // Print the Hamiltonian cycle and the total distance covered in the cycle
         System.out.println("2 opt cycle: " + String.join("->", cycle));
@@ -108,7 +103,7 @@ public class Hamiltonian {
 
     public static List<String> threeOpt(List<String> tour, Map<String, Map<String, Double>> edgeWeight) {
         boolean improvement = true;
-
+        double totalDistance = 0;
         while (improvement) {
             improvement = false;
 
@@ -119,26 +114,15 @@ public class Hamiltonian {
                         double oldDistance = computeTourDistance(tour, edgeWeight);
                         double newDistance = computeTourDistance(newTour, edgeWeight);
 
+                        totalDistance = oldDistance;
                         if (newDistance < oldDistance) {
                             tour = newTour;
                             improvement = true;
+                            totalDistance = newDistance;
                         }
                     }
                 }
             }
-        }
-
-        double totalDistance = 0;
-        for (int i = 0; i < tour.size() - 1; i++) {
-            String currVertex = tour.get(i);
-            String nextVertex = tour.get(i + 1);
-            Map<String, Double> vertexWeights = edgeWeight.get(currVertex);
-            Double edgedistance = vertexWeights.get(nextVertex);
-            if (edgedistance == null) {
-                // Handle the case where there is no edge between the current and next vertices
-                throw new IllegalArgumentException("No edge between " + currVertex + " and " + nextVertex);
-            }
-            totalDistance += edgedistance;
         }
 
         // Print the Hamiltonian cycle and the total distance covered in the cycle
