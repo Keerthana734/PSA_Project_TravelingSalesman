@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
@@ -20,11 +19,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 
-public class HelloFX extends Application {
+public class TSP_UI extends Application {
 
     private Map<String, CircleData> circleMap;
 
-    public HelloFX(){
+    public TSP_UI(){
         circleMap = new HashMap<>();
     }
 
@@ -67,22 +66,28 @@ public class HelloFX extends Application {
                 circleDataList.add(circledata);
             }
         }
-
+        //MST UI
         Button btMST = new Button("MST");
-        Button btOddDegree = new Button("Odd Degree Vertices");
-        btOddDegree.setLayoutX(50);
-        btOddDegree.setLayoutY(0);
-
-
-
-
         MSThandlerclass mstHandler = new MSThandlerclass(graph,circleDataList,root);
         btMST.setOnAction(mstHandler);
         root.getChildren().add(btMST);
 
+        //Odd Degree UI
+        Button btOddDegree = new Button("Odd Degree Vertices");
+        btOddDegree.setLayoutX(50);
+        btOddDegree.setLayoutY(0);
         OddDegreehandlerclass OddDegreeHandler = new OddDegreehandlerclass(graph,circleDataList,root);
         btOddDegree.setOnAction(OddDegreeHandler);
         root.getChildren().add(btOddDegree);
+
+        //Hamiltonian cycle
+        Button btHamiltonian = new Button("Christofides Algorithm");
+        btHamiltonian.setLayoutX(190);
+        btHamiltonian.setLayoutY(0);
+        Hamiltonianhandlerclass HamiltonianHandler = new Hamiltonianhandlerclass(graph,circleDataList,root);
+        btHamiltonian.setOnAction(HamiltonianHandler);
+        root.getChildren().add(btHamiltonian);
+
 
 
         //Creating a scene object
@@ -93,6 +98,7 @@ public class HelloFX extends Application {
         stage.setScene(scene);
         //Displaying the contents of the stage
         stage.show();
+
     }
 
     class MSThandlerclass implements EventHandler<ActionEvent>{
@@ -108,6 +114,18 @@ public class HelloFX extends Application {
                 }
         @Override
         public void handle(ActionEvent event){
+
+            ArrayList<Node> linesToRemove = new ArrayList<>();
+
+            for (Node node : root.getChildren()) {
+                if (node instanceof Line) {
+                    linesToRemove.add(node);
+                }
+            }
+            if(linesToRemove!=null){
+                root.getChildren().removeAll(linesToRemove);
+            }
+
 
             PrimsMST mst=new PrimsMST();
             List<Edge> mstEdgeList = mst.primMST(graph);
@@ -185,6 +203,67 @@ public class HelloFX extends Application {
             }
 
     }
+    class Hamiltonianhandlerclass implements EventHandler<ActionEvent> {
+
+        private Graph graph;
+        private List<CircleData> circleDataList;
+        private Group root;
+
+        Hamiltonianhandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
+            this.graph = graph;
+            this.circleDataList = circleDataList;
+            this.root = root;
+        }
+
+
+        @Override
+        public void handle(ActionEvent event){
+
+            ArrayList<Node> linesToRemove = new ArrayList<>();
+
+            for (Node node : root.getChildren()) {
+                if (node instanceof Line) {
+                    linesToRemove.add(node);
+                }
+            }
+            if(linesToRemove!=null){
+                root.getChildren().removeAll(linesToRemove);
+            }
+
+
+
+
+            PrimsMST mst=new PrimsMST();
+            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
+
+            double startX ,startY,endX,endY;
+            for(int i=0;i< hamiltonianCycle.size()-1;i++){
+                startX = 0;startY=0 ;endX=0;endY=0;
+
+                for(CircleData eachCircleData : circleDataList){
+                    if(hamiltonianCycle.get(i)==eachCircleData.getName()) {
+                        startX = eachCircleData.getX();
+                        startY = eachCircleData.getY();
+                    }
+                    if(hamiltonianCycle.get(i+1)==eachCircleData.getName()){
+                        endX= eachCircleData.getX();
+                        endY=eachCircleData.getY();
+
+                    }
+                }
+                Line line = new Line(startX, startY, endX, endY);
+                line.setStroke(Color.MEDIUMSPRINGGREEN);
+                root.getChildren().add(line);
+            }
+
+
+
+        }
+
+
+    }
+
+
 
 
 

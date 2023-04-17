@@ -4,7 +4,7 @@ import org.example.HierholzerAlgorithm;
 import org.example.*;
 public class MinimumWeightPerfectMatching {
 
-    public static void minimumWeightMatching(List<Edge> MST, Graph G, Set<String> oddVert) {
+    public static List<String> minimumWeightMatching(List<Edge> MST, Graph G, Set<String> oddVert) {
         List<String> oddVertices = new ArrayList<>(oddVert);
 
         //System.out.println(MST);
@@ -34,7 +34,8 @@ public class MinimumWeightPerfectMatching {
        // System.out.println(edgeWeight);
         List<String> tour = HierholzerAlgorithm.findEulerTour(H);
         //System.out.println(tour);
-        Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+        List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+        return hamiltonianCycle;
 
 
     }
