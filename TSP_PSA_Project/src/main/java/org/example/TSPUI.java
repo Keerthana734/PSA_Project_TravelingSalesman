@@ -17,13 +17,18 @@ import java.util.ArrayList;
 import org.example.Edge;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import org.example.CircleData;
+import org.example.MSThandlerclass;
 
 
-public class TSP_UI extends Application {
+
+
+
+public class TSPUI extends Application {
 
     private Map<String, CircleData> circleMap;
 
-    public TSP_UI(){
+    public TSPUI(){
         circleMap = new HashMap<>();
     }
 
@@ -80,7 +85,7 @@ public class TSP_UI extends Application {
         btOddDegree.setOnAction(OddDegreeHandler);
         root.getChildren().add(btOddDegree);
 
-        //Hamiltonian cycle
+        //Christofide UI
         Button btHamiltonian = new Button("Christofides Algorithm");
         btHamiltonian.setLayoutX(190);
         btHamiltonian.setLayoutY(0);
@@ -101,54 +106,7 @@ public class TSP_UI extends Application {
 
     }
 
-    class MSThandlerclass implements EventHandler<ActionEvent>{
 
-        private Graph graph;
-        private List<CircleData> circleDataList;
-        private Group root;
-                public MSThandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
-                    this.graph = graph;
-                    this.circleDataList = circleDataList;
-                    this.root = root;
-
-                }
-        @Override
-        public void handle(ActionEvent event){
-
-            ArrayList<Node> linesToRemove = new ArrayList<>();
-
-            for (Node node : root.getChildren()) {
-                if (node instanceof Line) {
-                    linesToRemove.add(node);
-                }
-            }
-            if(linesToRemove!=null){
-                root.getChildren().removeAll(linesToRemove);
-            }
-
-
-            PrimsMST mst=new PrimsMST();
-            List<Edge> mstEdgeList = mst.primMST(graph);
-            double startX = 0,startY=0 ,endX=0,endY=0;
-            for(Edge eachedge : mstEdgeList){
-                for(CircleData cdata: circleDataList){
-                    if(cdata.getName() == eachedge.getSource()){
-                        startX = cdata.getX();
-                        startY = cdata.getY();
-                    }
-                    if(cdata.getName() == eachedge.getDestination()){
-                        endX = cdata.getX();
-                        endY = cdata.getY();
-                    }
-
-                }
-                Line line = new Line(startX, startY, endX, endY);
-                root.getChildren().add(line);
-            }
-
-
-        }
-    }
 
     class OddDegreehandlerclass implements EventHandler<ActionEvent> {
         private Graph graph;
@@ -200,7 +158,7 @@ public class TSP_UI extends Application {
                 }
             }
 
-            }
+        }
 
     }
     class Hamiltonianhandlerclass implements EventHandler<ActionEvent> {
@@ -271,5 +229,4 @@ public class TSP_UI extends Application {
         launch(args);
     }
 }
-
 
