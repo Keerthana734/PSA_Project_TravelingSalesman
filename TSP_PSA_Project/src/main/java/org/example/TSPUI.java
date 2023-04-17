@@ -21,9 +21,6 @@ import org.example.CircleData;
 import org.example.MSThandlerclass;
 
 
-
-
-
 public class TSPUI extends Application {
 
     private Map<String, CircleData> circleMap;
@@ -173,7 +170,6 @@ public class TSPUI extends Application {
             this.root = root;
         }
 
-
         @Override
         public void handle(ActionEvent event){
 
@@ -187,9 +183,6 @@ public class TSPUI extends Application {
             if(linesToRemove!=null){
                 root.getChildren().removeAll(linesToRemove);
             }
-
-
-
 
             PrimsMST mst=new PrimsMST();
             List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
@@ -214,16 +207,9 @@ public class TSPUI extends Application {
                 root.getChildren().add(line);
             }
 
-
-
         }
 
-
     }
-
-
-
-
 
     public static void main(String args[]){
         launch(args);
