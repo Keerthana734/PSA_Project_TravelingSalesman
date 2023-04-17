@@ -39,7 +39,6 @@ public class HelloFX extends Application {
     @Override
     public void start(Stage stage) {
         Random rand = new Random();
-        int i=250;
 
         Graph graph = GraphFromCSV.constructGraphFromCSV("crimeSample.csv");
         int count = graph.getNumVertices();
@@ -54,6 +53,7 @@ public class HelloFX extends Application {
             circle.setCenterX(rand.nextInt(110,1400));
             circle.setCenterY(rand.nextInt(50,700));
             circle.setAccessibleText(eachvertex);
+
             root.getChildren().add(circle);
 
         }
@@ -69,30 +69,21 @@ public class HelloFX extends Application {
         }
 
         Button btMST = new Button("MST");
+        Button btOddDegree = new Button("Odd Degree Vertices");
+        btOddDegree.setLayoutX(50);
+        btOddDegree.setLayoutY(0);
+
+
 
 
         MSThandlerclass mstHandler = new MSThandlerclass(graph,circleDataList,root);
         btMST.setOnAction(mstHandler);
         root.getChildren().add(btMST);
-/*
-        PrimsMST mst=new PrimsMST();
-        List<Edge> mstEdgeList = mst.primMST(graph);
-        double startX = 0,startY=0 ,endX=0,endY=0;
-        for(Edge eachedge : mstEdgeList){
-            for(CircleData cdata: circleDataList){
-                if(cdata.getName() == eachedge.getSource()){
-                    startX = cdata.getX();
-                    startY = cdata.getY();
-                }
-                if(cdata.getName() == eachedge.getDestination()){
-                    endX = cdata.getX();
-                    endY = cdata.getY();
-                }
 
-            }
-            Line line = new Line(startX, startY, endX, endY);
-            root.getChildren().add(line);
-        }*/
+        OddDegreehandlerclass OddDegreeHandler = new OddDegreehandlerclass(graph,circleDataList,root);
+        btOddDegree.setOnAction(OddDegreeHandler);
+        root.getChildren().add(btOddDegree);
+
 
         //Creating a scene object
         Scene scene = new Scene(root, 2000, 800);
@@ -140,6 +131,61 @@ public class HelloFX extends Application {
 
         }
     }
+
+    class OddDegreehandlerclass implements EventHandler<ActionEvent> {
+        private Graph graph;
+        private List<CircleData> circleDataList;
+        private Group root;
+        public OddDegreehandlerclass (Graph graph, List<CircleData> circleDataList,Group root){
+            this.graph = graph;
+            this.circleDataList = circleDataList;
+            this.root = root;
+
+        }
+        @Override
+        public void handle(ActionEvent event){
+            PrimsMST mst=new PrimsMST();
+            Set<String> oddDegreeVertices =  OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph));
+
+            for(CircleData cdata: circleDataList){
+                for(String oddDegreeVertex : oddDegreeVertices){
+                    if(cdata.getName() == oddDegreeVertex){
+
+
+
+
+                        for(Node node : root.getChildren()){
+                            if (node instanceof Circle) {
+                                Circle circle = (Circle) node;
+                                if(circle.getAccessibleText()==cdata.getName()){
+                                    circle.setStroke(Color.YELLOW);
+                                    circle.setStrokeWidth(5);
+                                }
+
+
+                            }
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+
+            for(Node node : root.getChildren()){
+                if (node instanceof Circle) {
+                    Circle circle = (Circle) node;
+                    CircleData circledata = new CircleData(circle.getAccessibleText(),circle.getCenterX(),circle.getCenterY());
+                    circleDataList.add(circledata);
+                }
+            }
+
+            }
+
+    }
+
 
 
     public static void main(String args[]){
