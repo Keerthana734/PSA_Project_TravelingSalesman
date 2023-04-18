@@ -10,18 +10,15 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
-import org.example.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
 import java.util.ArrayList;
-import org.example.Edge;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import org.example.CircleData;
-import org.example.MSThandlerclass;
-import org.example.OddDegreehandlerclass;
-import org.example.PrimsMST;
+import org.example.*;
 
 
 public class TSPUI extends Application {
