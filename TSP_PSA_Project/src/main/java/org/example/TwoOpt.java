@@ -27,7 +27,7 @@ public class TwoOpt {
 
         // Print the 2 opt  cycle and the total distance covered in the cycle
         System.out.println("2 opt cycle: " + String.join("->", cycle));
-        System.out.println("Total distance covered: " + totalDistance);
+        System.out.println("Total distance covered 2 opt  in meters: " + totalDistance * 1000.0);
 
         return cycle;
     }

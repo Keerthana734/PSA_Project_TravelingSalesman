@@ -39,20 +39,11 @@ public class Hamiltonian {
 
         // Print the Hamiltonian cycle and the total distance covered in the cycle
         System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
-        System.out.println("Total distance covered: " + totalDistance);
-
-//        TSPGeneticAlgorithm tspGA = new TSPGeneticAlgorithm(hamiltonianCycle, edgeWeight);
-//        List<String> solution = tspGA.solve(100, 1000);
-//        System.out.println("Best solution: " + solution);
-//        double distance = tspGA.evaluateFitness(solution);
-//        System.out.println("Distance: " + distance);
+        System.out.println("Total distance covered Hamiltonian in meters: " + totalDistance * 1000.0);
 
 
         // Return the Hamiltonian cycle
         return hamiltonianCycle;
     }
-
-
-
 
 }
