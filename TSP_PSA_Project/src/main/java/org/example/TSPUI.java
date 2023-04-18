@@ -97,7 +97,7 @@ public class TSPUI extends Application {
 
         //2-opt UI
         Button btTwoOpt = new Button("2-Opt");
-        btTwoOpt.setLayoutX(330);
+        btTwoOpt.setLayoutX(338);
         btTwoOpt.setLayoutY(10);
         TwoOpthandlerclass TwoOptHandler = new TwoOpthandlerclass(graph,circleDataList,root);
         btTwoOpt.setOnAction(TwoOptHandler);
@@ -105,7 +105,7 @@ public class TSPUI extends Application {
 
         //3-opt UI
         Button btThreeOpt = new Button("3-Opt");
-        btThreeOpt.setLayoutX(410);
+        btThreeOpt.setLayoutX(395);
         btThreeOpt.setLayoutY(10);
         ThreeOpthandlerclass ThreeOptHandler = new ThreeOpthandlerclass(graph,circleDataList,root);
         btThreeOpt.setOnAction(ThreeOptHandler);
@@ -167,7 +167,7 @@ public class TSPUI extends Application {
                     }
                 }
                 Line line = new Line(startX, startY, endX, endY);
-                line.setStroke(Color.MEDIUMSPRINGGREEN);
+                line.setStroke(Color.BLUE);
                 root.getChildren().add(line);
             }
 
@@ -202,18 +202,18 @@ public class TSPUI extends Application {
 
             List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
             Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
-            List<String> twopOptRoute = Hamiltonian.twoOpt(hamiltonianCycle, edgeWeight);
+            List<String> twoOptRoute = Hamiltonian.twoOpt(hamiltonianCycle, edgeWeight);
 
             double startX ,startY,endX,endY;
-            for(int i=0;i< hamiltonianCycle.size()-1;i++){
+            for(int i=0;i< twoOptRoute.size()-1;i++){
                 startX = 0;startY=0 ;endX=0;endY=0;
 
                 for(CircleData eachCircleData : circleDataList){
-                    if(hamiltonianCycle.get(i)==eachCircleData.getName()) {
+                    if(twoOptRoute.get(i)==eachCircleData.getName()) {
                         startX = eachCircleData.getX();
                         startY = eachCircleData.getY();
                     }
-                    if(hamiltonianCycle.get(i+1)==eachCircleData.getName()){
+                    if(twoOptRoute.get(i+1)==eachCircleData.getName()){
                         endX= eachCircleData.getX();
                         endY=eachCircleData.getY();
 
@@ -221,6 +221,60 @@ public class TSPUI extends Application {
                 }
                 Line line = new Line(startX, startY, endX, endY);
                 line.setStroke(Color.GREEN);
+                root.getChildren().add(line);
+            }
+
+        }
+
+    }
+
+
+    class ThreeOpthandlerclass implements EventHandler<ActionEvent> {
+
+        private Graph graph;
+        private List<CircleData> circleDataList;
+        private Group root;
+
+        ThreeOpthandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
+            this.graph = graph;
+            this.circleDataList = circleDataList;
+            this.root = root;
+        }
+
+        @Override
+        public void handle(ActionEvent event){
+
+            ArrayList<Node> linesToRemove = new ArrayList<>();
+            for (Node node : root.getChildren()) {
+                if (node instanceof Line) {
+                    linesToRemove.add(node);
+                }
+            }
+            if(linesToRemove!=null){
+                root.getChildren().removeAll(linesToRemove);
+            }
+
+            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+
+            double startX ,startY,endX,endY;
+            for(int i=0;i< threeOptRoute.size()-1;i++){
+                startX = 0;startY=0 ;endX=0;endY=0;
+
+                for(CircleData eachCircleData : circleDataList){
+                    if(threeOptRoute.get(i)==eachCircleData.getName()) {
+                        startX = eachCircleData.getX();
+                        startY = eachCircleData.getY();
+                    }
+                    if(threeOptRoute.get(i+1)==eachCircleData.getName()){
+                        endX= eachCircleData.getX();
+                        endY=eachCircleData.getY();
+
+                    }
+                }
+                Line line = new Line(startX, startY, endX, endY);
+                line.setStroke(Color.DARKVIOLET);
                 root.getChildren().add(line);
             }
 
