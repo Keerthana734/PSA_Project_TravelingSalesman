@@ -1,3 +1,4 @@
+package org.example;
 
 import javafx.application.Application;
 import javafx.scene.Node;
@@ -19,6 +20,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.CircleData;
 import org.example.MSThandlerclass;
+import org.example.OddDegreehandlerclass;
+import org.example.PrimsMST;
 
 
 public class TSPUI extends Application {
@@ -70,6 +73,8 @@ public class TSPUI extends Application {
         }
         //MST UI
         Button btMST = new Button("MST");
+        btMST.setLayoutX(0);
+        btMST.setLayoutY(10);
         MSThandlerclass mstHandler = new MSThandlerclass(graph,circleDataList,root);
         btMST.setOnAction(mstHandler);
         root.getChildren().add(btMST);
@@ -77,7 +82,7 @@ public class TSPUI extends Application {
         //Odd Degree UI
         Button btOddDegree = new Button("Odd Degree Vertices");
         btOddDegree.setLayoutX(50);
-        btOddDegree.setLayoutY(0);
+        btOddDegree.setLayoutY(10);
         OddDegreehandlerclass OddDegreeHandler = new OddDegreehandlerclass(graph,circleDataList,root);
         btOddDegree.setOnAction(OddDegreeHandler);
         root.getChildren().add(btOddDegree);
@@ -85,17 +90,31 @@ public class TSPUI extends Application {
         //Christofide UI
         Button btHamiltonian = new Button("Christofides Algorithm");
         btHamiltonian.setLayoutX(190);
-        btHamiltonian.setLayoutY(0);
+        btHamiltonian.setLayoutY(10);
         Hamiltonianhandlerclass HamiltonianHandler = new Hamiltonianhandlerclass(graph,circleDataList,root);
         btHamiltonian.setOnAction(HamiltonianHandler);
         root.getChildren().add(btHamiltonian);
 
+        //2-opt UI
+        Button btTwoOpt = new Button("2-Opt");
+        btTwoOpt.setLayoutX(330);
+        btTwoOpt.setLayoutY(10);
+        TwoOpthandlerclass TwoOptHandler = new TwoOpthandlerclass(graph,circleDataList,root);
+        btTwoOpt.setOnAction(TwoOptHandler);
+        root.getChildren().add(btTwoOpt);
 
+        //3-opt UI
+        Button btThreeOpt = new Button("3-Opt");
+        btThreeOpt.setLayoutX(410);
+        btThreeOpt.setLayoutY(10);
+        ThreeOpthandlerclass ThreeOptHandler = new ThreeOpthandlerclass(graph,circleDataList,root);
+        btThreeOpt.setOnAction(ThreeOptHandler);
+        root.getChildren().add(btThreeOpt);
 
         //Creating a scene object
         Scene scene = new Scene(root, 2000, 800);
         //Setting title to the Stage
-        stage.setTitle("Christofides Algorithm");
+        stage.setTitle("Travelling Salesman");
         //Adding scene to the stage
         stage.setScene(scene);
         //Displaying the contents of the stage
@@ -103,61 +122,6 @@ public class TSPUI extends Application {
 
     }
 
-
-
-    class OddDegreehandlerclass implements EventHandler<ActionEvent> {
-        private Graph graph;
-        private List<CircleData> circleDataList;
-        private Group root;
-        public OddDegreehandlerclass (Graph graph, List<CircleData> circleDataList,Group root){
-            this.graph = graph;
-            this.circleDataList = circleDataList;
-            this.root = root;
-
-        }
-        @Override
-        public void handle(ActionEvent event){
-            PrimsMST mst=new PrimsMST();
-            Set<String> oddDegreeVertices =  OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph));
-
-            for(CircleData cdata: circleDataList){
-                for(String oddDegreeVertex : oddDegreeVertices){
-                    if(cdata.getName() == oddDegreeVertex){
-
-
-
-
-                        for(Node node : root.getChildren()){
-                            if (node instanceof Circle) {
-                                Circle circle = (Circle) node;
-                                if(circle.getAccessibleText()==cdata.getName()){
-                                    circle.setStroke(Color.YELLOW);
-                                    circle.setStrokeWidth(5);
-                                }
-
-
-                            }
-                        }
-
-
-
-
-                    }
-                }
-
-            }
-
-            for(Node node : root.getChildren()){
-                if (node instanceof Circle) {
-                    Circle circle = (Circle) node;
-                    CircleData circledata = new CircleData(circle.getAccessibleText(),circle.getCenterX(),circle.getCenterY());
-                    circleDataList.add(circledata);
-                }
-            }
-
-        }
-
-    }
     class Hamiltonianhandlerclass implements EventHandler<ActionEvent> {
 
         private Graph graph;
@@ -184,8 +148,8 @@ public class TSPUI extends Application {
                 root.getChildren().removeAll(linesToRemove);
             }
 
-            PrimsMST mst=new PrimsMST();
-            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
+
+            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
 
             double startX ,startY,endX,endY;
             for(int i=0;i< hamiltonianCycle.size()-1;i++){
@@ -204,6 +168,59 @@ public class TSPUI extends Application {
                 }
                 Line line = new Line(startX, startY, endX, endY);
                 line.setStroke(Color.MEDIUMSPRINGGREEN);
+                root.getChildren().add(line);
+            }
+
+        }
+
+    }
+
+    class TwoOpthandlerclass implements EventHandler<ActionEvent> {
+
+        private Graph graph;
+        private List<CircleData> circleDataList;
+        private Group root;
+
+        TwoOpthandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
+            this.graph = graph;
+            this.circleDataList = circleDataList;
+            this.root = root;
+        }
+
+        @Override
+        public void handle(ActionEvent event){
+
+            ArrayList<Node> linesToRemove = new ArrayList<>();
+            for (Node node : root.getChildren()) {
+                if (node instanceof Line) {
+                    linesToRemove.add(node);
+                }
+            }
+            if(linesToRemove!=null){
+                root.getChildren().removeAll(linesToRemove);
+            }
+
+            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            List<String> twopOptRoute = Hamiltonian.twoOpt(hamiltonianCycle, edgeWeight);
+
+            double startX ,startY,endX,endY;
+            for(int i=0;i< hamiltonianCycle.size()-1;i++){
+                startX = 0;startY=0 ;endX=0;endY=0;
+
+                for(CircleData eachCircleData : circleDataList){
+                    if(hamiltonianCycle.get(i)==eachCircleData.getName()) {
+                        startX = eachCircleData.getX();
+                        startY = eachCircleData.getY();
+                    }
+                    if(hamiltonianCycle.get(i+1)==eachCircleData.getName()){
+                        endX= eachCircleData.getX();
+                        endY=eachCircleData.getY();
+
+                    }
+                }
+                Line line = new Line(startX, startY, endX, endY);
+                line.setStroke(Color.GREEN);
                 root.getChildren().add(line);
             }
 

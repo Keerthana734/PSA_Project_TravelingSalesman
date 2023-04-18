@@ -38,8 +38,8 @@ public class Hamiltonian {
         // Print the Hamiltonian cycle and the total distance covered in the cycle
         System.out.println("Hamiltonian cycle: " + String.join("->", hamiltonianCycle));
         System.out.println("Total distance covered: " + totalDistance);
-        twoOpt(hamiltonianCycle, edgeWeight);
-        threeOpt(hamiltonianCycle,edgeWeight );
+        List<String> twoOptstring = twoOpt(hamiltonianCycle, edgeWeight);
+        List<String> threeOptstring =threeOpt(hamiltonianCycle,edgeWeight );
         // Return the Hamiltonian cycle
         return hamiltonianCycle;
     }
