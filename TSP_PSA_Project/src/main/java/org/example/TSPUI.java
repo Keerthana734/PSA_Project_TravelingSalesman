@@ -97,7 +97,7 @@ public class TSPUI extends Application {
 
         //2-opt UI
         Button btTwoOpt = new Button("2-Opt");
-        btTwoOpt.setLayoutX(338);
+        btTwoOpt.setLayoutX(337);
         btTwoOpt.setLayoutY(10);
         TwoOpthandlerclass TwoOptHandler = new TwoOpthandlerclass(graph,circleDataList,root);
         btTwoOpt.setOnAction(TwoOptHandler);
@@ -105,11 +105,19 @@ public class TSPUI extends Application {
 
         //3-opt UI
         Button btThreeOpt = new Button("3-Opt");
-        btThreeOpt.setLayoutX(395);
+        btThreeOpt.setLayoutX(393);
         btThreeOpt.setLayoutY(10);
         ThreeOpthandlerclass ThreeOptHandler = new ThreeOpthandlerclass(graph,circleDataList,root);
         btThreeOpt.setOnAction(ThreeOptHandler);
         root.getChildren().add(btThreeOpt);
+
+        //Simulated Annealing UI
+        Button btsimulatedAnnealing = new Button("Simulated Annealing");
+        btsimulatedAnnealing.setLayoutX(450);
+        btsimulatedAnnealing.setLayoutY(10);
+        simulatedAnnealinghandlerclass simulatedAnnealingHandler = new simulatedAnnealinghandlerclass(graph,circleDataList,root);
+        btsimulatedAnnealing.setOnAction(simulatedAnnealingHandler);
+        root.getChildren().add(btsimulatedAnnealing);
 
         //Creating a scene object
         Scene scene = new Scene(root, 2000, 800);
@@ -236,6 +244,60 @@ public class TSPUI extends Application {
         private Group root;
 
         ThreeOpthandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
+            this.graph = graph;
+            this.circleDataList = circleDataList;
+            this.root = root;
+        }
+
+        @Override
+        public void handle(ActionEvent event){
+
+            ArrayList<Node> linesToRemove = new ArrayList<>();
+            for (Node node : root.getChildren()) {
+                if (node instanceof Line) {
+                    linesToRemove.add(node);
+                }
+            }
+            if(linesToRemove!=null){
+                root.getChildren().removeAll(linesToRemove);
+            }
+
+            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+
+            double startX ,startY,endX,endY;
+            for(int i=0;i< threeOptRoute.size()-1;i++){
+                startX = 0;startY=0 ;endX=0;endY=0;
+
+                for(CircleData eachCircleData : circleDataList){
+                    if(threeOptRoute.get(i)==eachCircleData.getName()) {
+                        startX = eachCircleData.getX();
+                        startY = eachCircleData.getY();
+                    }
+                    if(threeOptRoute.get(i+1)==eachCircleData.getName()){
+                        endX= eachCircleData.getX();
+                        endY=eachCircleData.getY();
+
+                    }
+                }
+                Line line = new Line(startX, startY, endX, endY);
+                line.setStroke(Color.DARKVIOLET);
+                root.getChildren().add(line);
+            }
+
+        }
+
+    }
+
+
+    class simulatedAnnealinghandlerclass implements EventHandler<ActionEvent> {
+
+        private Graph graph;
+        private List<CircleData> circleDataList;
+        private Group root;
+
+        simulatedAnnealinghandlerclass(Graph graph,List<CircleData> circleDataList,Group root){
             this.graph = graph;
             this.circleDataList = circleDataList;
             this.root = root;
