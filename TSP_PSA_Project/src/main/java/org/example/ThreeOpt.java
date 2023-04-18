@@ -30,7 +30,7 @@ public class ThreeOpt {
 
         // Print the 3 opt  cycle and the total distance covered in the cycle
         System.out.println("3 opt cycle: " + String.join("->", tour));
-        System.out.println("Total distance covered 3 opt: " + totalDistance);
+        System.out.println("Total distance covered 3 opt in meters: " + totalDistance * 1000.0);
 
         return tour;
     }

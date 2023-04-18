@@ -21,6 +21,7 @@ public class GraphFromCSV {
 
 
                 String crimeID = values[0];
+                crimeID = crimeID.substring(crimeID.length() - 5);
                 double longitude = Double.parseDouble(values[1]);
                 double latitude = Double.parseDouble(values[2]);
 

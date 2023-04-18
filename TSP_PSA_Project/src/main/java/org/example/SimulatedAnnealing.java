@@ -52,7 +52,7 @@ public class SimulatedAnnealing {
         }
 
         // Print the best Hamiltonian cycle and distance
-        System.out.println("Best cycle in simulatedAnnealing: " + bestHamiltonianCycle + "\nDistance: " + bestDistance);
+        System.out.println("Best cycle in simulatedAnnealing: " + bestHamiltonianCycle + "\nDistance: " + bestDistance * 1000.0);
         // Return the best Hamiltonian cycle
         return bestHamiltonianCycle;
     }
