@@ -24,7 +24,7 @@ public static void main(String[] args){
     List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
 
     List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
-    List<String> twopOptRoute = twoOpt(hamiltonianCycle, edgeWeight);
+    List<String> twoOptRoute = twoOpt(hamiltonianCycle, edgeWeight);
     List<String> simulatedAnnealing = simulatedAnnealing(hamiltonianCycle,edgeWeight);
     List<String> thirdOptRoute = threeOpt(hamiltonianCycle,edgeWeight );
 
