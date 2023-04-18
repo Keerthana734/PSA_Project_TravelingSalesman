@@ -22,7 +22,8 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-                <!-- https://mvnrepository.com/artifact/org.ini4j/ini4j -->
+
+        <!-- https://mvnrepository.com/artifact/org.ini4j/ini4j -->
         <dependency>
             <groupId>org.ini4j</groupId>
             <artifactId>ini4j</artifactId>
@@ -41,7 +42,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>${javafx.maven.plugin.version}</version>
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>TSPUI</mainClass>
                 </configuration>
