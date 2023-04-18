@@ -10,14 +10,13 @@ public class SimulatedAnnealing {
     public static List<String> simulatedAnnealing(List<String> hamiltonianCycle, Map<String, Map<String, Double>> edgeWeight) {
         // Initialize the current and best Hamiltonian cycles
         List<String> currentHamiltonianCycle = new ArrayList<>(hamiltonianCycle);
-        List<String> bestHamiltonianCycle = new ArrayList<>(hamiltonianCycle);
+        List<String> simulatedAnnealingCycle = new ArrayList<>(hamiltonianCycle);
 
         // Initialize the current and best distances
         double currentDistance = computeDistance(currentHamiltonianCycle, edgeWeight);
         double bestDistance = currentDistance;
 
         // Initialize the temperature
-        // double temperature = computeInitialTemperature(currentHamiltonianCycle, edgeWeight);
         double temperature = 1000;
 
         // Initialize the coolingRate
@@ -40,9 +39,9 @@ public class SimulatedAnnealing {
                 currentDistance = candidateDistance;
             }
 
-            // Update the best Hamiltonian cycle and distance
+            // Update the best simulatedAnnealingCycle and distance
             if (currentDistance < bestDistance) {
-                bestHamiltonianCycle = currentHamiltonianCycle;
+                simulatedAnnealingCycle = currentHamiltonianCycle;
                 bestDistance = currentDistance;
             }
 
@@ -52,9 +51,9 @@ public class SimulatedAnnealing {
         }
 
         // Print the best Hamiltonian cycle and distance
-        System.out.println("Best cycle in simulatedAnnealing: " + bestHamiltonianCycle + "\nDistance: " + bestDistance * 1000.0);
-        // Return the best Hamiltonian cycle
-        return bestHamiltonianCycle;
+        System.out.println("Best cycle in simulatedAnnealing: " + simulatedAnnealingCycle + "\nDistance: " + bestDistance * 1000.0);
+        // Return the best simulatedAnnealingCycle
+        return simulatedAnnealingCycle;
     }
 
     private static double computeDistance(List<String> hamiltonianCycle, Map<String, Map<String, Double>> edgeWeight) {
