@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TSP_PSA_Project.iml" filepath="$PROJECT_DIR$/TSP_PSA_Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tspui.iml" filepath="$PROJECT_DIR$/tspui.iml" />
     </modules>
   </component>
 </project>

@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3d16d93a-ea05-440c-97f8-9377e4cbef47" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/TSP_PSA_Project.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Ant.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AntColonyOptimization.java" afterDir="false" />
@@ -20,15 +21,36 @@
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/PrimsMSTTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ThreeOptTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/TwoOptTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/org/example/ThreeOptTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/org/example/TwoOptTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/CircleData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/MSThandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/OddDegreehandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$Hamiltonianhandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$ThreeOpthandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$TwoOpthandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$simulatedAnnealinghandlerclass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tspui.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ChristofidesAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ChristofidesAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hamiltonian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hamiltonian.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ThreeOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ThreeOpt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TwoOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TwoOpt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/ChristofidesAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/ChristofidesAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GraphFromCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GraphFromCSV.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Hamiltonian.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Hamiltonian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/HierholzerAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/HierholzerAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MinimumWeightPerfectMatching.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/MinimumWeightPerfectMatching.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/OddDegreeVertices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/OddDegreeVertices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PrimsMST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PrimsMST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/SimulatedAnnealing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/SimulatedAnnealing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/TSPGeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/TSPGeneticAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/ThreeOpt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/ThreeOpt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/twoOpt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/twoOpt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/GraphTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/ThreeOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/ThreeOptTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/TwoOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/TwoOptTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +84,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pathVariables"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -86,109 +98,18 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ThreeOptTest">
-    <configuration name="ChristofidesAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.ChristofidesAlgorithm" />
+  <component name="RunManager">
+    <configuration name="TSPUI" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.TSPUI" />
       <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.fxml,javafx.controls,javafx.graphics" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OddDegreeVerticesTest.testGetOddDegreeVertices" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.OddDegreeVerticesTest" />
-      <option name="METHOD_NAME" value="testGetOddDegreeVertices" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ThreeOptTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.ThreeOptTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ThreeOptTest.testThreeOpt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.ThreeOptTest" />
-      <option name="METHOD_NAME" value="testThreeOpt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TwoOptTest.testTwoOpt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.TwoOptTest" />
-      <option name="METHOD_NAME" value="testTwoOpt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ThreeOptTest" />
-        <item itemvalue="JUnit.TwoOptTest.testTwoOpt" />
-        <item itemvalue="JUnit.ThreeOptTest.testThreeOpt" />
-        <item itemvalue="Application.ChristofidesAlgorithm" />
-        <item itemvalue="JUnit.OddDegreeVerticesTest.testGetOddDegreeVertices" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="3d16d93a-ea05-440c-97f8-9377e4cbef47" name="Changes" comment="" />
-      <created>1679773740999</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1679773740999</updated>
-      <workItem from="1679773742079" duration="2670000" />
-      <workItem from="1679944735062" duration="2809000" />
-      <workItem from="1680566481691" duration="603000" />
-      <workItem from="1680908539343" duration="114164000" />
-      <workItem from="1681775043256" duration="255000" />
-      <workItem from="1681775312930" duration="6624000" />
-      <workItem from="1681784514645" duration="16100000" />
-    </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
