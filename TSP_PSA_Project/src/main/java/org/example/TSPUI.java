@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
@@ -45,7 +46,7 @@ public class TSPUI extends Application {
     public void start(Stage stage) {
         Random rand = new Random();
 
-        Graph graph = GraphFromCSV.constructGraphFromCSV("crimeSample.csv");
+        Graph graph = GraphFromCSV.constructGraphFromCSV("info6205.spring2023.teamproject.csv");
         int count = graph.getNumVertices();
         //Drawing a Circle
         Group root = new Group();
@@ -56,7 +57,7 @@ public class TSPUI extends Application {
         for(String eachvertex: verticesList){
             Circle circle = new Circle(10,Color.RED);
             circle.setCenterX(rand.nextInt(110,1400));
-            circle.setCenterY(rand.nextInt(50,700));
+            circle.setCenterY(rand.nextInt(60,700));
             circle.setAccessibleText(eachvertex);
             root.getChildren().add(circle);
 
@@ -170,6 +171,16 @@ public class TSPUI extends Application {
         @Override
         public void handle(ActionEvent event){
 
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("Eurelian Tour");
+
+
+                }
+            }
+
             ArrayList<Node> linesToRemove = new ArrayList<>();
 
             for (Node node : root.getChildren()) {
@@ -229,6 +240,16 @@ public class TSPUI extends Application {
 
         @Override
         public void handle(ActionEvent event){
+
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("Christofide's Algorithm");
+
+
+                }
+            }
 
             ArrayList<Node> linesToRemove = new ArrayList<>();
 
@@ -290,6 +311,16 @@ public class TSPUI extends Application {
         @Override
         public void handle(ActionEvent event){
 
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("2-Opt");
+
+
+                }
+            }
+
             ArrayList<Node> linesToRemove = new ArrayList<>();
             for (Node node : root.getChildren()) {
                 if (node instanceof Line) {
@@ -350,6 +381,16 @@ public class TSPUI extends Application {
 
         @Override
         public void handle(ActionEvent event){
+
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("3-Opt");
+
+
+                }
+            }
 
             ArrayList<Node> linesToRemove = new ArrayList<>();
             for (Node node : root.getChildren()) {
@@ -413,6 +454,16 @@ public class TSPUI extends Application {
         @Override
         public void handle(ActionEvent event){
 
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("Simulated Annealing");
+
+
+                }
+            }
+
             ArrayList<Node> linesToRemove = new ArrayList<>();
             for (Node node : root.getChildren()) {
                 if (node instanceof Line) {
@@ -473,6 +524,16 @@ public class TSPUI extends Application {
 
         @Override
         public void handle(ActionEvent event){
+
+            for (Node node : root.getChildren()) {
+
+                if(node instanceof Label){
+                    Label label = (Label) node;
+                    label.setText("Ant Colony Optimization");
+
+
+                }
+            }
 
             ArrayList<Node> linesToRemove = new ArrayList<>();
             for (Node node : root.getChildren()) {
