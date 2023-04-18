@@ -20,6 +20,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.*;
 
+import static org.example.SimulatedAnnealing.simulatedAnnealing;
+import static org.example.ThreeOpt.threeOpt;
+import static org.example.TwoOpt.twoOpt;
+
 
 public class TSPUI extends Application {
 
@@ -152,9 +156,16 @@ public class TSPUI extends Application {
             if(linesToRemove!=null){
                 root.getChildren().removeAll(linesToRemove);
             }
+            PrimsMST mst=new PrimsMST();
+            Graph H = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
+            Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            List<String> tour = HierholzerAlgorithm.findEulerTour(H);
+            List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+            List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
 
 
-            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+
+            //List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
 
             double startX ,startY,endX,endY;
             for(int i=0;i< hamiltonianCycle.size()-1;i++){
@@ -205,9 +216,16 @@ public class TSPUI extends Application {
                 root.getChildren().removeAll(linesToRemove);
             }
 
-            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            //List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            //Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            //List<String> twoOptRoute = Hamiltonian.twoOpt(hamiltonianCycle, edgeWeight);
+            PrimsMST mst=new PrimsMST();
+            Graph H = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
             Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
-            List<String> twoOptRoute = Hamiltonian.twoOpt(hamiltonianCycle, edgeWeight);
+            List<String> tour = HierholzerAlgorithm.findEulerTour(H);
+            List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+            List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
+            List<String> twoOptRoute = TwoOpt.twoOpt(hamiltonianCycle, edgeWeight);
 
             double startX ,startY,endX,endY;
             for(int i=0;i< twoOptRoute.size()-1;i++){
@@ -259,9 +277,17 @@ public class TSPUI extends Application {
                 root.getChildren().removeAll(linesToRemove);
             }
 
-            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            //List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+            //Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+            //List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+
+            PrimsMST mst=new PrimsMST();
+            Graph H = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
             Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
-            List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+            List<String> tour = HierholzerAlgorithm.findEulerTour(H);
+            List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+            List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
+            List<String> threeOptRoute = threeOpt(hamiltonianCycle,edgeWeight );
 
             double startX ,startY,endX,endY;
             for(int i=0;i< threeOptRoute.size()-1;i++){
@@ -279,7 +305,7 @@ public class TSPUI extends Application {
                     }
                 }
                 Line line = new Line(startX, startY, endX, endY);
-                line.setStroke(Color.DARKVIOLET);
+                line.setStroke(Color.DARKGOLDENROD);
                 root.getChildren().add(line);
             }
 
@@ -313,9 +339,17 @@ public class TSPUI extends Application {
                 root.getChildren().removeAll(linesToRemove);
             }
 
-            List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+           // List<String> hamiltonianCycle = MinimumWeightPerfectMatching.minimumWeightMatching((PrimsMST.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(PrimsMST.primMST(graph)));
+           // Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
+           // List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+
+            PrimsMST mst=new PrimsMST();
+            Graph H = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
             Map<String, Map<String, Double>> edgeWeight = graph.getEdgeWeight();
-            List<String> threeOptRoute = Hamiltonian.threeOpt(hamiltonianCycle, edgeWeight);
+            List<String> tour = HierholzerAlgorithm.findEulerTour(H);
+            List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
+            List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
+            List<String> threeOptRoute = simulatedAnnealing(hamiltonianCycle,edgeWeight);
 
             double startX ,startY,endX,endY;
             for(int i=0;i< threeOptRoute.size()-1;i++){
@@ -333,7 +367,7 @@ public class TSPUI extends Application {
                     }
                 }
                 Line line = new Line(startX, startY, endX, endY);
-                line.setStroke(Color.DARKVIOLET);
+                line.setStroke(Color.ORANGE);
                 root.getChildren().add(line);
             }
 
