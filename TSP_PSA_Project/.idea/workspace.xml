@@ -4,100 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d16d93a-ea05-440c-97f8-9377e4cbef47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TSP_PSA_Project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Ant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AntColonyOptimization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/OddDegreeVerticesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/PrimsMSTTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ThreeOptTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/TwoOptTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/CircleData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/MSThandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/OddDegreehandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$Hamiltonianhandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$ThreeOpthandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$TwoOpthandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI$simulatedAnnealinghandlerclass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/TSPUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tspui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ChristofidesAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ChristofidesAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hamiltonian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hamiltonian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ThreeOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ThreeOpt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TwoOpt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TwoOpt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ChristofidesAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/ChristofidesAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/GraphFromCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/GraphFromCSV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Hamiltonian.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Hamiltonian.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/HierholzerAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/HierholzerAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MinimumWeightPerfectMatching.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/MinimumWeightPerfectMatching.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/OddDegreeVertices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/OddDegreeVertices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/PrimsMST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/PrimsMST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/SimulatedAnnealing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/SimulatedAnnealing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/TSPGeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/TSPGeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ThreeOpt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/ThreeOpt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/twoOpt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/twoOpt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/GraphTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/GraphTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/ThreeOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/ThreeOptTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/TwoOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/TwoOptTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="04fe20d9-bcce-4edf-90e9-3e4ce1a6e97c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2NWJ7rW2xpV1ZKz8G1LwHMWwsfQ" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pathVariables"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/org/example" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="TSPUI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.TSPUI" />
@@ -108,21 +25,7 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalStateException" package="java.lang" />
-          <option name="timeStamp" value="10" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
