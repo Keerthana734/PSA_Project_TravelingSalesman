@@ -1,9 +1,4 @@
 package org.example;
-import org.example.GraphFromCSV;
-import org.example.PrimsMST;
-import org.example.OddDegreeVertices;
-import org.example.MinimumWeightPerfectMatching;
-
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +19,7 @@ public static void main(String[] args){
     List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
 
     List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
-    List<String> twopOptRoute = twoOpt(hamiltonianCycle, edgeWeight);
+    List<String> twoOptRoute = twoOpt(hamiltonianCycle, edgeWeight);
     List<String> simulatedAnnealing = simulatedAnnealing(hamiltonianCycle,edgeWeight);
     List<String> thirdOptRoute = threeOpt(hamiltonianCycle,edgeWeight );
 
