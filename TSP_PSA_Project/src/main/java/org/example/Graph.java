@@ -95,7 +95,6 @@ public class Graph {
 
     public Map<String, Map<String, Double>> getEdgeWeight() {
         Map<String, Map<String, Double>> edgeWeight = new HashMap<>();
-
         for (String vertex : this.adjacencyList.keySet()) {
             Map<String, Double> neighbors = new HashMap<>();
             List<Edge> edges = this.adjacencyList.get(vertex);
@@ -104,7 +103,6 @@ public class Graph {
             }
             edgeWeight.put(vertex, neighbors);
         }
-
         return edgeWeight;
     }
 }
