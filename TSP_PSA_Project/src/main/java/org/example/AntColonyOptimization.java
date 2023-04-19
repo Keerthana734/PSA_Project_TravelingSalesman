@@ -104,7 +104,7 @@ public class AntColonyOptimization {
             }
         }
 
-        return (int) (Math.random() * 585);
+         return numberOfCities - 1;
     }
 
     /**
