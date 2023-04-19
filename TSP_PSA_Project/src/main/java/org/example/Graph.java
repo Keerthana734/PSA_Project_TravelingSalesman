@@ -105,6 +105,31 @@ public class Graph {
         }
         return edgeWeight;
     }
+    public double[][] convertToAdjacencyMatrix() {
+        // Get the number of vertices in the graph
+        int n = this.getNumVertices();
+
+        // Initialize the adjacency matrix with zeros
+        double[][] adjacencyMatrix = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                adjacencyMatrix[i][j] = 0;
+            }
+        }
+
+        // Populate the adjacency matrix with edge weights
+        for (String vertex : this.getVertices()) {
+            int i = this.getVertices().indexOf(vertex);
+            List<Edge> edges = this.getEdges(vertex);
+            for (Edge edge : edges) {
+                String destination = edge.getDestination();
+                int j = this.getVertices().indexOf(destination);
+                adjacencyMatrix[i][j] = edge.getWeight();
+            }
+        }
+
+        return adjacencyMatrix;
+    }
 }
 
 
