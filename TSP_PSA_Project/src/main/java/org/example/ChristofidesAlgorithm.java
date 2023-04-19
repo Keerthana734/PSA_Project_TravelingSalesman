@@ -14,7 +14,10 @@ import static org.example.TwoOpt.twoOpt;
 
 public class ChristofidesAlgorithm {
 public static void main(String[] args){
+
+
     Graph graph = GraphFromCSV.constructGraphFromCSV("info6205.spring2023.teamproject.csv");
+    double[][] gra=graph.convertToAdjacencyMatrix();
     PrimsMST mst=new PrimsMST();
     Graph H = MinimumWeightPerfectMatching.minimumWeightMatching((mst.primMST(graph)),graph,OddDegreeVertices.getOddDegreeVertices(mst.primMST(graph)));
     // System.out.println(edgeWeight);
@@ -24,9 +27,22 @@ public static void main(String[] args){
     List<String> eulerTour = Hamiltonian.shortcutEulerianCycle(tour,edgeWeight);
 
     List<String> hamiltonianCycle = Hamiltonian.shortcutEulerianCycle(eulerTour,edgeWeight);
+
+
+
+    AntColonyOptimization ant=new AntColonyOptimization(gra);
+    ant.startAntOptimization();
+
     List<String> twoOptRoute = twoOpt(hamiltonianCycle, edgeWeight);
+    long startTime = System.currentTimeMillis();
+
     List<String> simulatedAnnealing = simulatedAnnealing(hamiltonianCycle,edgeWeight);
+    long endTime = System.currentTimeMillis();
+    long duration = endTime - startTime;
+    System.out.println("Time :" + duration);
     List<String> thirdOptRoute = threeOpt(hamiltonianCycle,edgeWeight );
+
+
 
 }
 

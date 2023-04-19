@@ -33,7 +33,12 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.SimulatedAnnealingTest.testSimulatedAnnealing">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ChristofidesAlgorithm">
     <configuration name="ChristofidesAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.ChristofidesAlgorithm" />
       <module name="TSP_PSA_Project" />
@@ -55,7 +60,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinimumWeightPerfectMatchingTest.testMinimumWeightMatching" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OddDegreeVerticesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TSP_PSA_Project" />
       <extension name="coverage">
         <pattern>
@@ -64,14 +69,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.MinimumWeightPerfectMatchingTest" />
-      <option name="METHOD_NAME" value="testMinimumWeightMatching" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="org.example.OddDegreeVerticesTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrimsMSTTest.testPrimMST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PrimsMSTTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TSP_PSA_Project" />
       <extension name="coverage">
         <pattern>
@@ -81,22 +85,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.PrimsMSTTest" />
-      <option name="METHOD_NAME" value="testPrimMST" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimulatedAnnealingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TSP_PSA_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.SimulatedAnnealingTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,13 +106,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreeOptTest.testThreeOpt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TSP_PSA_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.ThreeOptTest" />
+      <option name="METHOD_NAME" value="testThreeOpt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SimulatedAnnealingTest.testSimulatedAnnealing" />
         <item itemvalue="Application.ChristofidesAlgorithm" />
-        <item itemvalue="JUnit.SimulatedAnnealingTest" />
-        <item itemvalue="JUnit.MinimumWeightPerfectMatchingTest.testMinimumWeightMatching" />
-        <item itemvalue="JUnit.PrimsMSTTest.testPrimMST" />
+        <item itemvalue="JUnit.ThreeOptTest.testThreeOpt" />
+        <item itemvalue="JUnit.SimulatedAnnealingTest.testSimulatedAnnealing" />
+        <item itemvalue="JUnit.PrimsMSTTest" />
+        <item itemvalue="JUnit.OddDegreeVerticesTest" />
       </list>
     </recent_temporary>
   </component>

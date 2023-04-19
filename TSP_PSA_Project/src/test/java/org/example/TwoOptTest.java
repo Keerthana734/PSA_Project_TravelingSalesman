@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TwoOptTest {
-
     @Test
     public void testTwoOpt() {
         // Define a sample graph with edge weights

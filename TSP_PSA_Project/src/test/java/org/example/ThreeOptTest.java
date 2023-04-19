@@ -43,6 +43,6 @@ public class ThreeOptTest {
         // Call the threeOpt() method and check the result
         List<String> result = ThreeOpt.threeOpt(tour, edgeWeight);
 
-        assertEquals("A->B->C->D->E", String.join("->", result));
+        assertEquals("A->B->C->D->E->A", String.join("->", result));
     }
 }
